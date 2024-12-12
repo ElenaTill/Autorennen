@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cdtqdukod2nsw" path="res://Mgame13/Auto 2.png" id="6_xxv1p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_662xh"]
-size = Vector2(94, 5.00002)
+size = Vector2(72, 5.00002)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ummrm"]
 radius = 12.0
@@ -26,7 +26,7 @@ radius = 12.0
 radius = 12.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2c6p3"]
-size = Vector2(7, 89.1372)
+size = Vector2(7, 84.9792)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gpiak"]
 size = Vector2(23.8451, 16.2199)
@@ -108,7 +108,7 @@ position = Vector2(17, -24.948)
 shape = SubResource("CircleShape2D_tjxaj")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Strecke"]
-position = Vector2(0, -47.1986)
+position = Vector2(-11, -47.1986)
 shape = SubResource("RectangleShape2D_662xh")
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Strecke"]
@@ -116,7 +116,7 @@ position = Vector2(-45, -0.259876)
 shape = SubResource("RectangleShape2D_2c6p3")
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="Strecke"]
-position = Vector2(44.5, -0.129938)
+position = Vector2(44.5, 1.94906)
 shape = SubResource("RectangleShape2D_2c6p3")
 
 [node name="CollisionShape2D10" type="CollisionShape2D" parent="Strecke"]
@@ -171,11 +171,12 @@ shape = SubResource("RectangleShape2D_vufnl")
 [node name="MusicPlayer" parent="." instance=ExtResource("4_5tvvx")]
 
 [node name="Label" type="Label" parent="."]
-offset_left = 56.0
-offset_top = -36.0
-offset_right = 192.0
-offset_bottom = 37.0
-text = "Your Game!"
+offset_left = 3.0
+offset_top = -45.0
+offset_right = 48.0
+offset_bottom = -22.0
+theme_override_font_sizes/font_size = 10
+text = "Timer"
 
 [node name="Auto" type="Area2D" parent="."]
 
@@ -209,3 +210,4 @@ wait_time = 15.0
 [connection signal="area_entered" from="Auto" to="." method="_on_auto_area_entered"]
 [connection signal="area_exited" from="Auto" to="." method="_on_auto_area_exited"]
 [connection signal="area_entered" from="Ziellinie" to="." method="_on_ziellinie_area_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

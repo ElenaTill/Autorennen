@@ -1,15 +1,18 @@
 extends Node2D
-var active = false
-var spawn_ready = false
-signal lost(paneln)
 signal win(paneln)
+
 
 @export var transition: PackedScene
 
 ### Internal Constants
 var auto_speed = 25
 
+
 ### Variables
+var active = false
+var spawn_ready = false
+
+
 
 func set_active(b):
 	active = b
@@ -19,7 +22,10 @@ func set_active(b):
 		$MusicPlayer.pause()
 	
 func new_game():
-	pass
+	$Timer.stop()
+	$Auto.position.x = 0
+	$Auto.position.y = 0
+	
 
 func enable():
 	if get_node("GameOver"):
@@ -35,11 +41,11 @@ func disable(text, color):
 
 func gamewon():
 	disable("You survived!", Color(0, 0.5, 0, 0))
-	win.emit(5)
+
 	
 func gamelost():
 	disable("Signal Lost", Color(0.5, 0., 0, 0))
-	lost.emit(5)
+
 
 func _ready():
 	pass
@@ -47,6 +53,8 @@ func _ready():
 	$MusicPlayer.start(music)
 
 func _process(delta):
+	$Label.text = "%3.2f"%($Timer.time_left)
+
 	if Input.is_action_just_pressed("newgame"):
 		enable()
 	if Input.is_action_pressed("Up") and active == true:
@@ -61,7 +69,8 @@ func _process(delta):
 func _on_auto_area_entered(area: Area2D) -> void:
 	if area == $Strecke:
 		print("Game Over")
-		lost.emit()
+		gamelost()
+		
 	#lost.emit()
 	#if area == $Startbox:
 		
@@ -72,9 +81,18 @@ func _on_auto_area_exited(area: Area2D) -> void:
 	if area == $Startbox:
 		print("Startbox Verlassen")
 		$Timer.start()
-
-
-func _on_ziellinie_area_entered(area: Area2D) -> void:
 	if area == $Ziellinie:
+		$Timer.stop()
 		print("You Won")
-		win.emit()
+		gamewon()
+		
+		
+
+func _on_timer_finished():
+	print ("Time Out")
+
+
+func _on_timer_timeout() -> void:
+	gamelost()
+	
+	
