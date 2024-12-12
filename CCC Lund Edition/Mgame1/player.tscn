@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdymc57se1jkk"]
+
+[ext_resource type="Script" path="res://Mgame1/player.gd" id="1_rfste"]
+[ext_resource type="Texture2D" uid="uid://b7n6lx081n8mj" path="res://Mgame1/catship1.png" id="2_jpvf8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2ucm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jpvf8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jpvf8")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_21q1i"]
+size = Vector2(2.8, 2.8)
+
+[node name="Player" type="Area2D"]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("1_rfste")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+z_index = 2
+position = Vector2(1.19209e-07, -1.19209e-07)
+scale = Vector2(0.171875, 0.171875)
+sprite_frames = SubResource("SpriteFrames_k2ucm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.2, -0.2)
+shape = SubResource("RectangleShape2D_21q1i")

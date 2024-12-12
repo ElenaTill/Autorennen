@@ -1,0 +1,91 @@
+[gd_scene load_steps=10 format=3 uid="uid://80k2474qj1xa"]
+
+[ext_resource type="Script" path="res://Mgame4/mgame4.gd" id="1_5v0dy"]
+[ext_resource type="Texture2D" uid="uid://ds0enfeqaoqo" path="res://Border.png" id="1_7wsd5"]
+[ext_resource type="PackedScene" uid="uid://bpe6kpl10kofd" path="res://Mgame4/m_4_button.tscn" id="2_182jh"]
+[ext_resource type="PackedScene" uid="uid://c83sgl4h14273" path="res://game_over.tscn" id="2_sdg7k"]
+[ext_resource type="PackedScene" uid="uid://7piatcnbsyea" path="res://winzone.tscn" id="3_0lyr3"]
+[ext_resource type="Texture2D" uid="uid://b5g4n8injpl42" path="res://Mgame4/Terminal.png" id="3_7bung"]
+[ext_resource type="PackedScene" uid="uid://cipvgotbj53h2" path="res://Mgame4/m_4_player.tscn" id="5_w44t5"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="7_hfgkr"]
+[ext_resource type="PackedScene" uid="uid://ih31k1u8xvg7" path="res://music_player.tscn" id="9_qdeo6"]
+
+[node name="Mgame4" type="Node2D"]
+script = ExtResource("1_5v0dy")
+buttons = ExtResource("2_182jh")
+transition = ExtResource("2_sdg7k")
+
+[node name="Border" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("1_7wsd5")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2, 0)
+texture = ExtResource("3_7bung")
+
+[node name="winzone" parent="." instance=ExtResource("3_0lyr3")]
+position = Vector2(-55, 0)
+
+[node name="m4Player" parent="." instance=ExtResource("5_w44t5")]
+position = Vector2(24, 38)
+rotation = 0.689405
+scale = Vector2(1.2, 1.2)
+
+[node name="Label" type="Label" parent="."]
+offset_left = -17.0
+offset_top = -39.0
+offset_right = 22.0
+offset_bottom = -6.0
+theme_override_colors/font_color = Color(0.0941176, 0.368627, 0.439216, 1)
+theme_override_fonts/font = ExtResource("7_hfgkr")
+theme_override_font_sizes/font_size = 6
+text = "Ejection"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="."]
+offset_left = -17.0
+offset_top = -30.0
+offset_right = 17.0
+offset_bottom = -23.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = -15.0
+offset_top = -5.0
+offset_right = 33.0
+offset_bottom = 18.0
+theme_override_colors/font_color = Color(0.0941176, 0.368627, 0.439216, 1)
+theme_override_fonts/font = ExtResource("7_hfgkr")
+theme_override_font_sizes/font_size = 5
+text = "Enter_____"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_left = 4.0
+offset_top = -5.0
+offset_right = 20.0
+
+[node name="Countdown" type="Label" parent="."]
+offset_left = -15.0
+offset_top = -21.0
+offset_right = 22.0
+offset_bottom = -7.0
+theme_override_colors/font_color = Color(0.0924, 0.37048, 0.44, 1)
+theme_override_colors/font_shadow_color = Color(0.109804, 0.439216, 0.521569, 1)
+theme_override_fonts/font = ExtResource("7_hfgkr")
+theme_override_font_sizes/font_size = 9
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+one_shot = true
+
+[node name="MusicPlayer" parent="." instance=ExtResource("9_qdeo6")]
+
+[connection signal="win" from="winzone" to="." method="_on_winzone_win"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

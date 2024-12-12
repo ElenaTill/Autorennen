@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://h4fionckr4mm"]
+
+[ext_resource type="Texture2D" uid="uid://ds0enfeqaoqo" path="res://Border.png" id="1_psjin"]
+[ext_resource type="Script" path="res://mgameBASE.gd" id="1_s7c20"]
+[ext_resource type="PackedScene" uid="uid://c83sgl4h14273" path="res://game_over.tscn" id="2_udn2t"]
+[ext_resource type="Texture2D" uid="uid://dao3ds7cbrfia" path="res://Mgame1/bg.png" id="2_xgrgg"]
+[ext_resource type="PackedScene" uid="uid://ih31k1u8xvg7" path="res://music_player.tscn" id="5_2dxvc"]
+
+[node name="MgameBase" type="Node2D"]
+script = ExtResource("1_s7c20")
+transition = ExtResource("2_udn2t")
+
+[node name="Border" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("1_psjin")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_xgrgg")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("5_2dxvc")]

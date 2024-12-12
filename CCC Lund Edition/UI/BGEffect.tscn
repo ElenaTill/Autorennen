@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3awmgnxah05q"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o7oj7"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_83ho2"]
+material = SubResource("StandardMaterial3D_o7oj7")
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Circle" type="MeshInstance2D" parent="."]
+position = Vector2(-4.99997, -0.999939)
+scale = Vector2(303.47, 288.5)
+mesh = SubResource("SphereMesh_83ho2")

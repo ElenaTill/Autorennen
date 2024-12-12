@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://btt0y52nwd2ys"]
+
+[ext_resource type="Texture2D" uid="uid://ceh32hobnpjme" path="res://UI/key.png" id="1_jqs6t"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="2_rg42o"]
+
+[node name="Key" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_jqs6t")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -13.0
+offset_top = -12.0
+offset_right = 15.0
+offset_bottom = 19.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.314316, 0.314316, 0.314316, 1)
+theme_override_fonts/font = ExtResource("2_rg42o")
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://delrwxotal63r"]
+
+[ext_resource type="Script" path="res://Mgame2/Cloud.gd" id="1_m3qtn"]
+[ext_resource type="Texture2D" uid="uid://bo4iiwerekl47" path="res://Mgame2/cloud.png" id="2_mmpy3"]
+
+[node name="Cloud" type="Area2D"]
+script = ExtResource("1_m3qtn")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mmpy3")

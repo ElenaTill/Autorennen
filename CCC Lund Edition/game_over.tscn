@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c83sgl4h14273"]
+
+[ext_resource type="Script" path="res://game_over.gd" id="1_0tllg"]
+[ext_resource type="Texture2D" uid="uid://dao3ds7cbrfia" path="res://Mgame1/bg.png" id="2_3cfp6"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="3_5fudk"]
+
+[node name="GameOver" type="Area2D"]
+script = ExtResource("1_0tllg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 10
+texture = ExtResource("2_3cfp6")
+
+[node name="Message" type="Label" parent="."]
+z_index = 11
+offset_left = -41.0
+offset_top = -11.0
+offset_right = 42.0
+offset_bottom = 12.0
+theme_override_fonts/font = ExtResource("3_5fudk")
+theme_override_font_sizes/font_size = 9
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

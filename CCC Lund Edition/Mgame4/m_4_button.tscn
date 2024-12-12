@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=3 uid="uid://bpe6kpl10kofd"]
+
+[ext_resource type="Texture2D" uid="uid://dq3k6qd51qrlr" path="res://Mgame4/Buttons.png" id="1_r708k"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wx57l"]
+atlas = ExtResource("1_r708k")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ophyj"]
+atlas = ExtResource("1_r708k")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_d4ob8"]
+atlas = ExtResource("1_r708k")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vre3r"]
+atlas = ExtResource("1_r708k")
+region = Rect2(24, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_60kc8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wx57l")
+}],
+"loop": true,
+"name": &"blue",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ophyj")
+}],
+"loop": true,
+"name": &"green",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_d4ob8")
+}],
+"loop": true,
+"name": &"red",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vre3r")
+}],
+"loop": true,
+"name": &"yellow",
+"speed": 5.0
+}]
+
+[node name="m4Button" type="Control"]
+custom_minimum_size = Vector2(2, 2)
+layout_direction = 2
+layout_mode = 3
+anchors_preset = 0
+offset_right = 2.0
+offset_bottom = 2.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0.705882)
+scale = Vector2(0.9, 0.9)
+sprite_frames = SubResource("SpriteFrames_60kc8")
+animation = &"yellow"
+centered = false

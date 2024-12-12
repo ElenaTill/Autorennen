@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvcw01cm4lje3"]
+
+[ext_resource type="Texture2D" uid="uid://bv3iwdj6j45x0" path="res://marker.png" id="1_psrk1"]
+
+[node name="Marker" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_psrk1")

@@ -1,0 +1,65 @@
+[gd_scene load_steps=4 format=3 uid="uid://bkhvt46a0qcyy"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_paklb"]
+[ext_resource type="Texture2D" uid="uid://cm1sofcg3k5dl" path="res://UI/arrow.png" id="2_37618"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="3_mpqf2"]
+
+[node name="Guide" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_paklb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(849.5, 477)
+scale = Vector2(0.745, 0.684615)
+texture = ExtResource("2_37618")
+
+[node name="Description" type="Label" parent="."]
+z_index = 1
+layout_mode = 0
+offset_left = 549.0
+offset_top = 458.0
+offset_right = 753.0
+offset_bottom = 497.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_mpqf2")
+theme_override_font_sizes/font_size = 12
+autowrap_mode = 2
+
+[node name="Left" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 777.0
+offset_top = 479.0
+offset_right = 796.0
+offset_bottom = 498.0
+
+[node name="Right" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 829.0
+offset_top = 479.0
+offset_right = 848.0
+offset_bottom = 498.0
+
+[node name="Up" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 456.0
+offset_right = 822.0
+offset_bottom = 475.0
+
+[node name="Down" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 803.0
+offset_top = 479.0
+offset_right = 822.0
+offset_bottom = 498.0
+
+[node name="Space" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 862.0
+offset_top = 469.0
+offset_right = 918.0
+offset_bottom = 488.0

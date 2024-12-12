@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://cipvgotbj53h2"]
+
+[ext_resource type="Texture2D" uid="uid://c25pnyynk7k8o" path="res://Mgame4/catpaw.png" id="1_3weqx"]
+
+[node name="m4Player" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1, 0)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("1_3weqx")

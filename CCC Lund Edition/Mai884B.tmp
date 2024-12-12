@@ -1,0 +1,131 @@
+[gd_scene load_steps=8 format=3 uid="uid://btm5ku1usbb43"]
+
+[ext_resource type="Script" path="res://MainGame.gd" id="1_u3lik"]
+[ext_resource type="PackedScene" uid="uid://bo0t2kkb8u003" path="res://Mgame1/mgame_1.tscn" id="2_burbs"]
+[ext_resource type="Texture2D" uid="uid://dd4nqqcpfsrxs" path="res://UI/Overlay.png" id="3_2pjnl"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="3_t0nov"]
+[ext_resource type="PackedScene" uid="uid://gr61cl8b6382" path="res://game_overlay.tscn" id="3_uap22"]
+[ext_resource type="PackedScene" uid="uid://capvchy2wbmal" path="res://Mgame2/mgame2.tscn" id="4_mwfxk"]
+[ext_resource type="PackedScene" uid="uid://btt0y52nwd2ys" path="res://UI/key.tscn" id="4_u0wwu"]
+
+[node name="MainGame" type="Node"]
+script = ExtResource("1_u3lik")
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="Score" type="Label" parent="UI"]
+z_index = 200
+texture_filter = 3
+offset_left = 52.0
+offset_top = 538.0
+offset_right = 118.0
+offset_bottom = 561.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "Score: 
+"
+
+[node name="Points" type="Label" parent="UI/Score"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = -1.0
+offset_right = 231.0
+offset_bottom = 22.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "6"
+
+[node name="IncrementLabel" type="Label" parent="UI/Score"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 21.0
+offset_right = 253.0
+offset_bottom = 44.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "People rescued without incident:"
+
+[node name="Increment" type="Label" parent="UI/Score"]
+layout_mode = 0
+offset_left = 192.0
+offset_top = 21.0
+offset_right = 232.0
+offset_bottom = 44.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "6
+"
+
+[node name="Sprite2D" type="Sprite2D" parent="UI"]
+texture_filter = 1
+position = Vector2(489, 302)
+scale = Vector2(2, 2)
+texture = ExtResource("3_2pjnl")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="UI"]
+
+[node name="Key1" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+position = Vector2(132, 44)
+
+[node name="Key2" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+position = Vector2(252, 44)
+
+[node name="Key3" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+position = Vector2(372, 44)
+
+[node name="Key4" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+position = Vector2(492, 44)
+
+[node name="Overview" type="SubViewportContainer" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 42.0
+offset_right = 499.0
+offset_bottom = 502.0
+
+[node name="SubViewport" type="SubViewport" parent="Overview"]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(400, 400)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Overview/SubViewport"]
+offset = Vector2(400, 350)
+zoom = Vector2(0.5, 0.5)
+
+[node name="GameOverlay" parent="Overview/SubViewport" instance=ExtResource("3_uap22")]
+visible = false
+position = Vector2(402, 450)
+scale = Vector2(1.5, 1.5)
+
+[node name="Mgame1" parent="Overview/SubViewport" instance=ExtResource("2_burbs")]
+position = Vector2(94.5, 142.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="Mgame2" parent="Overview/SubViewport" instance=ExtResource("4_mwfxk")]
+position = Vector2(274.5, 142.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="Zoomview" type="SubViewportContainer" parent="."]
+texture_filter = 1
+offset_left = 539.0
+offset_top = 42.0
+offset_right = 939.0
+offset_bottom = 502.0
+
+[node name="SubViewport" type="SubViewport" parent="Zoomview"]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(400, 400)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Zoomview/SubViewport"]
+
+[connection signal="lost" from="Overview/SubViewport/Mgame1" to="." method="_on_mgame_1_lost"]
+[connection signal="win" from="Overview/SubViewport/Mgame1" to="." method="_on_mgame_1_win"]
+[connection signal="lost" from="Overview/SubViewport/Mgame2" to="." method="_on_mgame_2_lost"]
+[connection signal="win" from="Overview/SubViewport/Mgame2" to="." method="_on_mgame_2_win"]

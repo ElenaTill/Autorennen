@@ -1,0 +1,52 @@
+[gd_scene load_steps=12 format=3 uid="uid://bo0t2kkb8u003"]
+
+[ext_resource type="Script" path="res://Mgame1/mgame_1.gd" id="1_oyw58"]
+[ext_resource type="PackedScene" uid="uid://cdymc57se1jkk" path="res://Mgame1/player.tscn" id="1_yf0ae"]
+[ext_resource type="PackedScene" uid="uid://ce8gdhlvugk1c" path="res://Mgame1/star.tscn" id="2_7xju7"]
+[ext_resource type="Texture2D" uid="uid://ds0enfeqaoqo" path="res://Border.png" id="2_n4i2p"]
+[ext_resource type="Texture2D" uid="uid://dao3ds7cbrfia" path="res://Mgame1/bg.png" id="4_f4tow"]
+[ext_resource type="PackedScene" uid="uid://7et33k4u43fc" path="res://Mgame1/asteroid.tscn" id="6_4r02d"]
+[ext_resource type="PackedScene" uid="uid://c83sgl4h14273" path="res://game_over.tscn" id="7_717lu"]
+[ext_resource type="PackedScene" uid="uid://7piatcnbsyea" path="res://winzone.tscn" id="8_lulsd"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="8_rxq57"]
+[ext_resource type="PackedScene" uid="uid://bvcw01cm4lje3" path="res://marker.tscn" id="9_hhmfu"]
+[ext_resource type="PackedScene" uid="uid://ih31k1u8xvg7" path="res://music_player.tscn" id="10_mbcvt"]
+
+[node name="Mgame1" type="Node2D"]
+script = ExtResource("1_oyw58")
+star_scene = ExtResource("2_7xju7")
+transition = ExtResource("7_717lu")
+
+[node name="Border" type="Sprite2D" parent="."]
+z_index = 20
+texture = ExtResource("2_n4i2p")
+
+[node name="Player" parent="." instance=ExtResource("1_yf0ae")]
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("4_f4tow")
+
+[node name="asteroid" parent="." instance=ExtResource("6_4r02d")]
+
+[node name="winzone" parent="." instance=ExtResource("8_lulsd")]
+position = Vector2(-55, 0)
+
+[node name="Marker" parent="." instance=ExtResource("9_hhmfu")]
+z_index = 5
+
+[node name="Label" type="Label" parent="Marker"]
+offset_left = -11.0
+offset_top = 10.0
+offset_right = 29.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.717647, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_rxq57")
+theme_override_font_sizes/font_size = 6
+text = "Avoid!"
+
+[node name="MusicPlayer" parent="." instance=ExtResource("10_mbcvt")]
+
+[connection signal="area_entered" from="asteroid" to="." method="_on_asteroid_area_entered"]
+[connection signal="win" from="winzone" to="." method="_on_winzone_win"]

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://b0k46725up0vy"]
+
+[ext_resource type="Script" path="res://speed_effect.gd" id="1_w41sw"]
+[ext_resource type="Texture2D" uid="uid://srgvnda545e" path="res://Pixel.png" id="2_j4xdw"]
+
+[node name="SpeedEffect" type="Area2D"]
+script = ExtResource("1_w41sw")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_j4xdw")

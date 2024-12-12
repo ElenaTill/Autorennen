@@ -1,0 +1,70 @@
+[gd_scene load_steps=14 format=3 uid="uid://capvchy2wbmal"]
+
+[ext_resource type="Script" path="res://Mgame2/mgame2.gd" id="1_r0np1"]
+[ext_resource type="Texture2D" uid="uid://ds0enfeqaoqo" path="res://Border.png" id="1_ty4og"]
+[ext_resource type="PackedScene" uid="uid://delrwxotal63r" path="res://Mgame2/cloud.tscn" id="2_jm76i"]
+[ext_resource type="PackedScene" uid="uid://c83sgl4h14273" path="res://game_over.tscn" id="3_884rm"]
+[ext_resource type="Texture2D" uid="uid://bv10cluwunk4r" path="res://Mgame2/bg.png" id="3_go5k4"]
+[ext_resource type="PackedScene" uid="uid://7piatcnbsyea" path="res://winzone.tscn" id="3_n3h7g"]
+[ext_resource type="PackedScene" uid="uid://cihlvglkggwal" path="res://Mgame2/planet.tscn" id="5_idrec"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="6_o66rd"]
+[ext_resource type="PackedScene" uid="uid://bmimo5ttremfp" path="res://Mgame2/arrow.tscn" id="7_gmgaa"]
+[ext_resource type="PackedScene" uid="uid://bbdi0gjejpvgg" path="res://Mgame2/player_m_2.tscn" id="8_n15jq"]
+[ext_resource type="PackedScene" uid="uid://bvcw01cm4lje3" path="res://marker.tscn" id="8_y34g7"]
+[ext_resource type="Script" path="res://Mgame2/player_m_2.gd" id="9_88qku"]
+[ext_resource type="PackedScene" uid="uid://ih31k1u8xvg7" path="res://music_player.tscn" id="12_3q2aq"]
+
+[node name="Mgame2" type="Node2D"]
+script = ExtResource("1_r0np1")
+cloud_scene = ExtResource("2_jm76i")
+transition = ExtResource("3_884rm")
+
+[node name="Border" type="Sprite2D" parent="."]
+z_index = 20
+texture = ExtResource("1_ty4og")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("3_go5k4")
+
+[node name="winzone" parent="." instance=ExtResource("3_n3h7g")]
+position = Vector2(-45, -1)
+
+[node name="Planet" parent="." instance=ExtResource("5_idrec")]
+
+[node name="Marker" parent="Planet" instance=ExtResource("8_y34g7")]
+z_index = 5
+
+[node name="Label" type="Label" parent="Planet/Marker"]
+offset_left = -6.0
+offset_top = 10.0
+offset_right = 34.0
+offset_bottom = 33.0
+theme_override_colors/font_color = Color(0.717647, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_o66rd")
+theme_override_font_sizes/font_size = 6
+text = "Hit!"
+
+[node name="PONR" type="Label" parent="."]
+offset_left = -32.0
+offset_top = -45.0
+offset_right = 57.0
+offset_bottom = -29.0
+rotation = 1.5708
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0.211765, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_o66rd")
+theme_override_font_sizes/font_size = 6
+text = "Point of Failure"
+
+[node name="Arrow" parent="." instance=ExtResource("7_gmgaa")]
+
+[node name="PlayerM2" parent="." instance=ExtResource("8_n15jq")]
+script = ExtResource("9_88qku")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("12_3q2aq")]
+
+[connection signal="launch" from="." to="PlayerM2" method="_on_mgame_2_launch"]
+[connection signal="win" from="winzone" to="." method="_on_winzone_win"]
+[connection signal="area_entered" from="Planet" to="." method="_on_planet_area_entered"]

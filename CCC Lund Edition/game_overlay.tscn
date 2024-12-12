@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://gr61cl8b6382"]
+
+[ext_resource type="Texture2D" uid="uid://bv1nfv76nbpe7" path="res://gameoverlay.png" id="1_d4v10"]
+
+[node name="GameOverlay" type="Area2D"]
+z_index = 99
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 99
+texture = ExtResource("1_d4v10")

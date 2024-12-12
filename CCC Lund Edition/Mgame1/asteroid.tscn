@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://7et33k4u43fc"]
+
+[ext_resource type="Script" path="res://asteroid.gd" id="1_ms5b4"]
+[ext_resource type="Texture2D" uid="uid://b33pewvrb27p6" path="res://Mgame1/debrie.png" id="2_anpen"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fdukq"]
+size = Vector2(9, 13)
+
+[node name="asteroid" type="Area2D"]
+script = ExtResource("1_ms5b4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 2.5)
+shape = SubResource("RectangleShape2D_fdukq")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture = ExtResource("2_anpen")

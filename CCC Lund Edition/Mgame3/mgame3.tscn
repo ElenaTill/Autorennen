@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://d2b7vxye7mnym"]
+
+[ext_resource type="Script" path="res://Mgame3/mgame3.gd" id="1_c6xg8"]
+[ext_resource type="Texture2D" uid="uid://ds0enfeqaoqo" path="res://Border.png" id="1_w8x0c"]
+[ext_resource type="PackedScene" uid="uid://b0k46725up0vy" path="res://speed_effect.tscn" id="2_omqmo"]
+[ext_resource type="Texture2D" uid="uid://c733hahfwaluk" path="res://Mgame3/m3BG.png" id="2_w2qi5"]
+[ext_resource type="PackedScene" uid="uid://c83sgl4h14273" path="res://game_over.tscn" id="3_0dfka"]
+[ext_resource type="PackedScene" uid="uid://7piatcnbsyea" path="res://winzone.tscn" id="3_xh0mx"]
+[ext_resource type="PackedScene" uid="uid://cqt0bkhro3ht7" path="res://Mgame3/m_3_player.tscn" id="5_x1oyd"]
+[ext_resource type="Texture2D" uid="uid://box24gqdbl35q" path="res://Mgame3/m3arrow.png" id="7_y2tew"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="8_lp48m"]
+[ext_resource type="PackedScene" uid="uid://ih31k1u8xvg7" path="res://music_player.tscn" id="10_dcl7l"]
+
+[sub_resource type="Gradient" id="Gradient_7agl4"]
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_55drm"]
+gradient = SubResource("Gradient_7agl4")
+fill_from = Vector2(0.169725, 0.307339)
+fill_to = Vector2(0.715596, 0.793578)
+
+[node name="Mgame3" type="Node2D"]
+script = ExtResource("1_c6xg8")
+speed_scene = ExtResource("2_omqmo")
+transition = ExtResource("3_0dfka")
+
+[node name="Border" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("1_w8x0c")
+
+[node name="BG" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("2_w2qi5")
+
+[node name="winzone" parent="." instance=ExtResource("3_xh0mx")]
+position = Vector2(36, 37)
+rotation = 0.785398
+
+[node name="m3Player" parent="." instance=ExtResource("5_x1oyd")]
+position = Vector2(-27, -19)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(1, 0)
+scale = Vector2(1.695, 1.585)
+range_z_min = 0
+range_z_max = 10
+range_layer_max = 10
+texture = SubResource("GradientTexture2D_55drm")
+
+[node name="Marker" type="Sprite2D" parent="."]
+position = Vector2(46, -40)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("7_y2tew")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 42.0
+offset_top = -46.0
+offset_right = 94.0
+offset_bottom = -23.0
+rotation = 1.5708
+theme_override_colors/font_color = Color(0.443137, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_lp48m")
+theme_override_font_sizes/font_size = 6
+text = "Critical Temp"
+
+[node name="MusicPlayer" parent="." instance=ExtResource("10_dcl7l")]
+
+[node name="Good" type="Label" parent="."]
+offset_left = -43.0
+offset_top = -45.0
+offset_right = -3.0
+offset_bottom = -22.0
+theme_override_colors/font_color = Color(0, 0.541176, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_lp48m")
+theme_override_font_sizes/font_size = 6
+text = "Good"
+
+[node name="Alignement" type="Label" parent="."]
+offset_left = -22.0
+offset_top = -45.0
+offset_right = 21.0
+offset_bottom = -22.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_lp48m")
+theme_override_font_sizes/font_size = 6
+text = "Alignement"
+
+[node name="Bad" type="Label" parent="."]
+offset_left = -39.0
+offset_top = -45.0
+offset_right = 1.0
+offset_bottom = -22.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_lp48m")
+theme_override_font_sizes/font_size = 6
+text = "Bad"
+
+[connection signal="area_entered" from="winzone" to="." method="_on_winzone_area_entered"]

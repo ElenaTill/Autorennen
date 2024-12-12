@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://ih31k1u8xvg7"]
+
+[ext_resource type="Script" path="res://music_player.gd" id="1_qrmax"]
+
+[node name="MusicPlayer" type="Node"]
+script = ExtResource("1_qrmax")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="finished" from="AudioStreamPlayer" to="." method="_on_audio_stream_player_finished"]

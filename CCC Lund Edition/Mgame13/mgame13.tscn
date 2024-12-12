@@ -1,0 +1,211 @@
+[gd_scene load_steps=26 format=3 uid="uid://c0ovbmuwvax0v"]
+
+[ext_resource type="Script" path="res://Mgame13/mgame13.gd" id="1_neobc"]
+[ext_resource type="PackedScene" uid="uid://c83sgl4h14273" path="res://game_over.tscn" id="2_34bc8"]
+[ext_resource type="Texture2D" uid="uid://ds0enfeqaoqo" path="res://Border.png" id="3_7mjuy"]
+[ext_resource type="PackedScene" uid="uid://ih31k1u8xvg7" path="res://music_player.tscn" id="4_5tvvx"]
+[ext_resource type="Texture2D" uid="uid://dbf6yre7m28s" path="res://Mgame13/Strecke 2.png" id="4_p4jmo"]
+[ext_resource type="Texture2D" uid="uid://cdtqdukod2nsw" path="res://Mgame13/Auto 2.png" id="6_xxv1p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_662xh"]
+size = Vector2(94, 5.00002)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ummrm"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6f7in"]
+size = Vector2(23, 69.6466)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_byvi8"]
+size = Vector2(18.4082, 47.1001)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1rh55"]
+radius = 12.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tjxaj"]
+radius = 12.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2c6p3"]
+size = Vector2(7, 89.1372)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gpiak"]
+size = Vector2(23.8451, 16.2199)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_it67s"]
+size = Vector2(12, 8.21945)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ep1k5"]
+size = Vector2(15, 3.77375)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uv83f"]
+size = Vector2(15.0131, 5.31426)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0yhhn"]
+size = Vector2(13.5004, 3.1274)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_i7pxf"]
+size = Vector2(13.4059, 6.8815)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uofj"]
+size = Vector2(15, 3.76299)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4qsb"]
+size = Vector2(12.2423, 4.25594)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vufnl"]
+size = Vector2(16.3784, 7.04341)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sp2l8"]
+size = Vector2(3.25, 5.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2b3gw"]
+size = Vector2(3.25, 6.39812)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3ajw"]
+size = Vector2(10, 2.59876)
+
+[node name="Mgame13" type="Node2D"]
+script = ExtResource("1_neobc")
+transition = ExtResource("2_34bc8")
+
+[node name="Border" type="Sprite2D" parent="."]
+z_index = 5
+texture = ExtResource("3_7mjuy")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Border"]
+position = Vector2(0, 44.81)
+scale = Vector2(1, 0.962)
+shape = SubResource("RectangleShape2D_662xh")
+
+[node name="Strecke" type="Area2D" parent="."]
+scale = Vector2(1, 0.962)
+
+[node name="sprite" type="Sprite2D" parent="Strecke"]
+modulate = Color(0.769432, 0.769432, 0.769432, 1)
+z_index = -1
+texture = ExtResource("4_p4jmo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(-17, -20.79)
+shape = SubResource("CircleShape2D_ummrm")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(-17, 10.395)
+shape = SubResource("RectangleShape2D_6f7in")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(17.505, 7.79625)
+rotation = -0.00191033
+scale = Vector2(1.24944, 0.728269)
+shape = SubResource("RectangleShape2D_byvi8")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(17, 20.79)
+shape = SubResource("CircleShape2D_1rh55")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(17, -24.948)
+shape = SubResource("CircleShape2D_tjxaj")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(0, -47.1986)
+shape = SubResource("RectangleShape2D_662xh")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(-45, -0.259876)
+shape = SubResource("RectangleShape2D_2c6p3")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(44.5, -0.129938)
+shape = SubResource("RectangleShape2D_2c6p3")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(16.9226, -36.5886)
+shape = SubResource("RectangleShape2D_gpiak")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(4.49494, -40.1139)
+rotation = 0.735437
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_it67s")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(-5, -43.659)
+rotation = 0.405833
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_ep1k5")
+
+[node name="CollisionShape2D13" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(-40, -38.4615)
+rotation = -0.71823
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_uv83f")
+
+[node name="CollisionShape2D14" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(-29.4118, -43.9555)
+rotation = -0.318709
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_0yhhn")
+
+[node name="CollisionShape2D15" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(-5.93596, 38.2331)
+rotation = 0.934916
+shape = SubResource("RectangleShape2D_i7pxf")
+
+[node name="CollisionShape2D16" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(4, 43.659)
+rotation = 0.322382
+shape = SubResource("RectangleShape2D_8uofj")
+
+[node name="CollisionShape2D17" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(30.7077, 43.9614)
+rotation = -0.377549
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_n4qsb")
+
+[node name="CollisionShape2D18" type="CollisionShape2D" parent="Strecke"]
+position = Vector2(38.3753, 41.0096)
+rotation = -0.674854
+shape = SubResource("RectangleShape2D_vufnl")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("4_5tvvx")]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 56.0
+offset_top = -36.0
+offset_right = 192.0
+offset_bottom = 37.0
+text = "Your Game!"
+
+[node name="Auto" type="Area2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="Auto"]
+position = Vector2(-35, 38)
+scale = Vector2(0.125, 0.11)
+texture = ExtResource("6_xxv1p")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Auto"]
+position = Vector2(-35.625, 37.75)
+scale = Vector2(1, 1)
+shape = SubResource("RectangleShape2D_sp2l8")
+
+[node name="Startbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D19" type="CollisionShape2D" parent="Startbox"]
+position = Vector2(-35.625, 37.9225)
+scale = Vector2(1, 0.962)
+shape = SubResource("RectangleShape2D_2b3gw")
+
+[node name="Ziellinie" type="Area2D" parent="."]
+
+[node name="CollisionShape2D20" type="CollisionShape2D" parent="Ziellinie"]
+position = Vector2(35, -39.75)
+scale = Vector2(1, 0.962)
+shape = SubResource("RectangleShape2D_t3ajw")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[connection signal="area_entered" from="Auto" to="." method="_on_auto_area_entered"]
+[connection signal="area_exited" from="Auto" to="." method="_on_auto_area_exited"]
+[connection signal="area_entered" from="Ziellinie" to="." method="_on_ziellinie_area_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://7piatcnbsyea"]
+
+[ext_resource type="Script" path="res://winzone.gd" id="1_a5wdq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_modyb"]
+size = Vector2(20, 87)
+
+[node name="winzone" type="Area2D"]
+script = ExtResource("1_a5wdq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_modyb")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

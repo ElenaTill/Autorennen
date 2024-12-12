@@ -1,0 +1,470 @@
+[gd_scene load_steps=31 format=3 uid="uid://cq64ffm6e6phr"]
+
+[ext_resource type="Script" path="res://main_menue.gd" id="1_rj0g4"]
+[ext_resource type="Script" path="res://MainMenue/Background.gd" id="3_8atvy"]
+[ext_resource type="Script" path="res://MainMenue/MainLabel.gd" id="3_8yeqp"]
+[ext_resource type="Texture2D" uid="uid://p56shr1lauoo" path="res://MainMenue/Background.png" id="3_743wl"]
+[ext_resource type="Script" path="res://MainMenue/Fade.gd" id="3_larfi"]
+[ext_resource type="Script" path="res://MainMenue/Fade2.gd" id="4_4hek6"]
+[ext_resource type="Texture2D" uid="uid://dm32yxrt6el7l" path="res://MainMenue/AcatHidden.png" id="4_5vptc"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="4_8ai72"]
+[ext_resource type="Script" path="res://MainMenue/TextHighlight.gd" id="4_eede2"]
+[ext_resource type="Texture2D" uid="uid://dckovxt1von3u" path="res://MainMenue/Acat.png" id="5_23r3q"]
+[ext_resource type="Script" path="res://MainMenue/Story1.gd" id="5_ao4x1"]
+[ext_resource type="Script" path="res://MainMenue/HiddenFace.gd" id="5_nhf5h"]
+[ext_resource type="Script" path="res://MainMenue/PointLight2D14.gd" id="5_xbb8t"]
+[ext_resource type="Script" path="res://MainMenue/Story2.gd" id="6_ba2ei"]
+[ext_resource type="Script" path="res://Story3.gd" id="6_qol50"]
+[ext_resource type="Texture2D" uid="uid://bfhtperqit3xm" path="res://MainMenue/AcatFace.png" id="6_suuwb"]
+[ext_resource type="PackedScene" uid="uid://ih31k1u8xvg7" path="res://music_player.tscn" id="7_llw2s"]
+[ext_resource type="Script" path="res://MainMenue/PointLight2D.gd" id="8_b5qau"]
+[ext_resource type="Script" path="res://MainMenue/PointLight2D3.gd" id="9_m24pm"]
+[ext_resource type="Script" path="res://MainMenue/PointLight2D29.gd" id="9_sybep"]
+
+[sub_resource type="Gradient" id="Gradient_6ha78"]
+offsets = PackedFloat32Array(0, 0.555882)
+colors = PackedColorArray(0, 0.890196, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_hmdrw"]
+gradient = SubResource("Gradient_6ha78")
+fill = 1
+fill_from = Vector2(0.5, 0.495726)
+
+[sub_resource type="Gradient" id="Gradient_t6l1k"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_cytk7"]
+gradient = SubResource("Gradient_t6l1k")
+fill_to = Vector2(0.764957, 0.641026)
+
+[sub_resource type="Gradient" id="Gradient_2llpk"]
+offsets = PackedFloat32Array(0, 0.193182, 0.826705, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_a3trg"]
+gradient = SubResource("Gradient_2llpk")
+fill_from = Vector2(0, 0.465812)
+fill_to = Vector2(1, 0.529915)
+
+[sub_resource type="Gradient" id="Gradient_poolm"]
+offsets = PackedFloat32Array(0, 0.5625, 1)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jif0u"]
+gradient = SubResource("Gradient_poolm")
+fill_from = Vector2(0.222222, 0.401709)
+fill_to = Vector2(0.867521, 0.448718)
+
+[sub_resource type="Gradient" id="Gradient_e85gy"]
+offsets = PackedFloat32Array(0, 0.776471)
+colors = PackedColorArray(0.428315, 0.809677, 0.783518, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_luyop"]
+gradient = SubResource("Gradient_e85gy")
+fill = 1
+fill_from = Vector2(0.487179, 0.491453)
+
+[node name="MainMenue" type="Node2D"]
+position = Vector2(217, 376)
+script = ExtResource("1_rj0g4")
+
+[node name="Story2" type="Node2D" parent="."]
+modulate = Color(0.525101, 0.525101, 0.525101, 1)
+
+[node name="Story1" type="Label" parent="Story2"]
+z_index = 150
+offset_left = 17.0
+offset_top = 30.0
+offset_right = 499.0
+offset_bottom = 53.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8ai72")
+text = "MainCoone Prime has been visciously attacked
+"
+script = ExtResource("5_ao4x1")
+
+[node name="Story2" type="Label" parent="Story2"]
+z_index = 150
+offset_left = 565.0
+offset_top = 62.0
+offset_right = 772.0
+offset_bottom = 100.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8ai72")
+theme_override_font_sizes/font_size = 16
+text = "All Hope is Lost!
+"
+script = ExtResource("6_ba2ei")
+
+[node name="Story3" type="Label" parent="Story2"]
+light_mask = 3
+visibility_layer = 3
+z_index = 150
+offset_left = 165.0
+offset_top = 42.0
+offset_right = 758.0
+offset_bottom = 206.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8ai72")
+theme_override_font_sizes/font_size = 16
+text = "You are in Command to find them a new Home!
+"
+script = ExtResource("6_qol50")
+
+[node name="TextHighlight" type="PointLight2D" parent="Story2/Story3"]
+light_mask = 3
+visibility_layer = 3
+z_index = 300
+position = Vector2(100.25, 16)
+scale = Vector2(4.30469, 1)
+energy = 16.0
+texture = SubResource("GradientTexture2D_hmdrw")
+script = ExtResource("4_eede2")
+
+[node name="Fade" type="Sprite2D" parent="."]
+z_index = 200
+position = Vector2(264, -256)
+scale = Vector2(18.6875, 16.9375)
+texture = SubResource("GradientTexture2D_cytk7")
+script = ExtResource("3_larfi")
+
+[node name="Fade2" type="Sprite2D" parent="."]
+z_index = 4095
+position = Vector2(-1000, -50)
+scale = Vector2(22.1406, 11.7031)
+texture = SubResource("GradientTexture2D_a3trg")
+script = ExtResource("4_4hek6")
+
+[node name="MainLabel" type="Area2D" parent="."]
+position = Vector2(-1000, 0)
+script = ExtResource("3_8yeqp")
+
+[node name="MainLabel" type="Label" parent="MainLabel"]
+z_index = 5
+offset_left = 228.0
+offset_top = -141.0
+offset_right = 670.0
+offset_bottom = -28.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8ai72")
+theme_override_font_sizes/font_size = 40
+text = "Catastrophic 
+Cat Command"
+horizontal_alignment = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="MainLabel/MainLabel"]
+z_index = -1
+position = Vector2(28, 50)
+scale = Vector2(18.4531, 2)
+texture = SubResource("GradientTexture2D_jif0u")
+
+[node name="Label" type="Label" parent="MainLabel/MainLabel"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 118.0
+offset_right = 329.0
+offset_bottom = 141.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8ai72")
+text = "Hit                  to Start"
+
+[node name="Label2" type="Label" parent="MainLabel/MainLabel"]
+layout_mode = 0
+offset_left = 131.0
+offset_top = 118.0
+offset_right = 329.0
+offset_bottom = 141.0
+theme_override_colors/font_color = Color(0, 0, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_8ai72")
+text = "      [any Key]"
+
+[node name="Background" type="Node2D" parent="."]
+script = ExtResource("3_8atvy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Background"]
+modulate = Color(0.314316, 0.314316, 0.314316, 1)
+position = Vector2(276, -260)
+scale = Vector2(1.65436, 1.65436)
+texture = ExtResource("3_743wl")
+
+[node name="BackgroundLights" type="CanvasGroup" parent="Background"]
+
+[node name="PointLight2D14" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(209.5, 309.625)
+scale = Vector2(3.73438, 3.89063)
+color = Color(1, 1, 0.8, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D15" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(409, -19)
+scale = Vector2(1.80469, 1.74414)
+color = Color(1, 1, 0.8, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D16" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(548, 25)
+scale = Vector2(1.80469, 1.74414)
+color = Color(1, 1, 0.8, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D17" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(701, 84)
+scale = Vector2(1.80469, 1.74414)
+color = Color(1, 1, 0.8, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D18" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(-10.375, -191.569)
+scale = Vector2(3.04297, 2.60376)
+color = Color(1, 1, 0.8, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D19" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(128, -459)
+scale = Vector2(1.42773, 1.32925)
+color = Color(1, 1, 0.8, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D20" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(739.656, -357.49)
+scale = Vector2(2.19824, 1.81851)
+color = Color(1, 1, 0.8, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D21" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(550.328, 350.975)
+scale = Vector2(5.05225, 4.65461)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D22" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(534, 464)
+scale = Vector2(2.4585, 2.71875)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D23" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(611, 533)
+scale = Vector2(2.4585, 2.71875)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D24" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(707, 617)
+scale = Vector2(2.4585, 2.71875)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D25" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(338, 357.281)
+scale = Vector2(2.4585, 0.98828)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D26" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(338, 357.281)
+scale = Vector2(2.4585, 0.98828)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D27" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(41, -130)
+scale = Vector2(0.875, 0.98828)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D28" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(-123, -145)
+scale = Vector2(0.875, 0.98828)
+color = Color(1, 1, 0, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("5_xbb8t")
+
+[node name="PointLight2D29" type="PointLight2D" parent="Background/BackgroundLights"]
+position = Vector2(278, 2714.63)
+scale = Vector2(14.9063, 14.8906)
+color = Color(0.662269, 0.753959, 0.983349, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(0, -200)
+script = ExtResource("9_sybep")
+
+[node name="Cat" type="Node2D" parent="."]
+z_index = 10
+scale = Vector2(1.5, 1.5)
+
+[node name="HiddenFace" type="Sprite2D" parent="Cat"]
+z_index = 1
+texture = ExtResource("4_5vptc")
+script = ExtResource("5_nhf5h")
+
+[node name="PointLight2D3" type="PointLight2D" parent="Cat/HiddenFace"]
+position = Vector2(-223.667, -52.6667)
+scale = Vector2(2.25, 1.89583)
+energy = 20.0
+texture = SubResource("GradientTexture2D_luyop")
+offset = Vector2(100, 0)
+
+[node name="Suite" type="Sprite2D" parent="Cat"]
+modulate = Color(0.347817, 0.347817, 0.347817, 1)
+texture = ExtResource("5_23r3q")
+
+[node name="PointLight2D" type="PointLight2D" parent="Cat/Suite"]
+position = Vector2(95.3333, -69.3333)
+scale = Vector2(2.21875, 2.4375)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("8_b5qau")
+
+[node name="PointLight2D2" type="PointLight2D" parent="Cat/Suite"]
+position = Vector2(-90, -70.6667)
+scale = Vector2(2.21875, 2.4375)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("8_b5qau")
+
+[node name="Suite Lights" type="CanvasGroup" parent="Cat/Suite"]
+
+[node name="PointLight2D3" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(76, 30)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D4" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(120, 29.3333)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D5" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(63.3333, 96.6667)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D6" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(-58.6666, 98)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D7" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(-114.667, 31.3333)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D8" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(-57.3333, 28.6667)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D9" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(74.6666, 114)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D10" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(78.6667, 90)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D11" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(-68, 114.667)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D12" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(-74.6667, 90.6667)
+scale = Vector2(0.536458, 0.572917)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="PointLight2D13" type="PointLight2D" parent="Cat/Suite/Suite Lights"]
+position = Vector2(-64, -1.33331)
+scale = Vector2(0.536458, 0.572917)
+color = Color(0, 1, 0.223529, 1)
+energy = 4.0
+texture = SubResource("GradientTexture2D_luyop")
+script = ExtResource("9_m24pm")
+
+[node name="Face" type="Sprite2D" parent="Cat"]
+texture = ExtResource("6_suuwb")
+
+[node name="MusicPlayer" parent="." instance=ExtResource("7_llw2s")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 24.1
+one_shot = true
+
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 12.2
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]

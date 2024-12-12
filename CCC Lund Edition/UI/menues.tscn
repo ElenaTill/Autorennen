@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://b8xhd3lmmoyit"]
+
+[ext_resource type="Script" path="res://UI/menues.gd" id="1_3ix7m"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="2_0dto3"]
+[ext_resource type="PackedScene" uid="uid://d16f3ti8mramw" path="res://Highscore/highscore.tscn" id="3_kj1vq"]
+
+[sub_resource type="Gradient" id="Gradient_a1vhr"]
+offsets = PackedFloat32Array(0, 0.622159, 0.977273)
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_lmvbm"]
+gradient = SubResource("Gradient_a1vhr")
+width = 600
+height = 600
+fill_to = Vector2(1, 0.239316)
+
+[node name="Menues" type="Node2D"]
+script = ExtResource("1_3ix7m")
+
+[node name="Transition" type="Area2D" parent="."]
+
+[node name="TransitionSprite" type="Sprite2D" parent="Transition"]
+modulate = Color(1, 1, 1, 0.882353)
+position = Vector2(-1159, 304)
+scale = Vector2(3.846, 1)
+texture = SubResource("GradientTexture2D_lmvbm")
+
+[node name="MenueItems" type="VBoxContainer" parent="."]
+offset_left = 426.0
+offset_top = 230.0
+offset_right = 982.0
+offset_bottom = 598.0
+theme_override_constants/separation = 10
+
+[node name="Restart" type="Label" parent="MenueItems"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.412152, 0.412152, 0.412152, 1)
+theme_override_fonts/font = ExtResource("2_0dto3")
+theme_override_font_sizes/font_size = 20
+text = "Restart:"
+
+[node name="Restart2" type="Label" parent="MenueItems/Restart"]
+layout_mode = 2
+offset_left = 128.0
+offset_top = 1.0
+offset_right = 556.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.891291, 2.71939e-06, 5.77569e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.412152, 0.412152, 0.412152, 1)
+theme_override_fonts/font = ExtResource("2_0dto3")
+theme_override_font_sizes/font_size = 20
+text = "R"
+
+[node name="Quit" type="Label" parent="MenueItems"]
+layout_mode = 2
+theme_override_colors/font_shadow_color = Color(0.466181, 0.466181, 0.466181, 1)
+theme_override_fonts/font = ExtResource("2_0dto3")
+theme_override_font_sizes/font_size = 20
+text = "Quit"
+
+[node name="Quit2" type="Label" parent="MenueItems/Quit"]
+layout_mode = 2
+offset_left = 128.0
+offset_top = -1.0
+offset_right = 556.0
+offset_bottom = 66.0
+theme_override_colors/font_color = Color(0.827162, 0.827162, 3.85046e-07, 1)
+theme_override_colors/font_shadow_color = Color(0.466181, 0.466181, 0.466181, 1)
+theme_override_fonts/font = ExtResource("2_0dto3")
+theme_override_font_sizes/font_size = 20
+text = "Q"
+
+[node name="Highscore" parent="MenueItems" instance=ExtResource("3_kj1vq")]
+position = Vector2(-208, 117)

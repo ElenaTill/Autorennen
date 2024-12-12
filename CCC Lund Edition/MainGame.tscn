@@ -1,0 +1,488 @@
+[gd_scene load_steps=25 format=3 uid="uid://btm5ku1usbb43"]
+
+[ext_resource type="Script" path="res://MainGame.gd" id="1_u3lik"]
+[ext_resource type="PackedScene" uid="uid://bo0t2kkb8u003" path="res://Mgame1/mgame_1.tscn" id="2_burbs"]
+[ext_resource type="PackedScene" uid="uid://b83vk50fdhyos" path="res://UI/panel_highlight.tscn" id="2_qqt8m"]
+[ext_resource type="PackedScene" uid="uid://d3awmgnxah05q" path="res://UI/BGEffect.tscn" id="3_cxiy1"]
+[ext_resource type="FontFile" uid="uid://kiis2ifdyxrj" path="res://fonts/FFFFORWA.TTF" id="3_t0nov"]
+[ext_resource type="PackedScene" uid="uid://bkhvt46a0qcyy" path="res://UI/guide.tscn" id="3_wd48a"]
+[ext_resource type="Script" path="res://Game Notes.gd" id="4_3koi7"]
+[ext_resource type="PackedScene" uid="uid://capvchy2wbmal" path="res://Mgame2/mgame2.tscn" id="4_mwfxk"]
+[ext_resource type="PackedScene" uid="uid://btt0y52nwd2ys" path="res://UI/key.tscn" id="4_u0wwu"]
+[ext_resource type="Texture2D" uid="uid://bysmk2mesqob6" path="res://UI/loading_border.png" id="5_8c3ky"]
+[ext_resource type="PackedScene" uid="uid://b0fbxw805fq4k" path="res://UI/GameOverMenue/GameOverMenue.tscn" id="5_ikj2k"]
+[ext_resource type="Texture2D" uid="uid://bw0rbben5kpbu" path="res://UI/loading_bar.png" id="6_83hr3"]
+[ext_resource type="PackedScene" uid="uid://bvy5jqex0nyjh" path="res://DecorCat/decor_cat2.tscn" id="7_jetqe"]
+[ext_resource type="PackedScene" uid="uid://d2b7vxye7mnym" path="res://Mgame3/mgame3.tscn" id="8_q3hjo"]
+[ext_resource type="Texture2D" uid="uid://dxsc3gshsivmn" path="res://UI/OverlayNew.png" id="9_w1kq4"]
+[ext_resource type="PackedScene" uid="uid://80k2474qj1xa" path="res://Mgame4/mgame4.tscn" id="11_00x6f"]
+[ext_resource type="PackedScene" uid="uid://b8xhd3lmmoyit" path="res://UI/menues.tscn" id="11_hpahw"]
+[ext_resource type="Texture2D" uid="uid://cgovov2thbol2" path="res://Mgame1/star.png" id="13_xysq3"]
+[ext_resource type="Script" path="res://TutorialStar.gd" id="14_0xgay"]
+[ext_resource type="PackedScene" uid="uid://cydgugoid35wm" path="res://DecorCat/decor_cat.tscn" id="27_mehs4"]
+[ext_resource type="PackedScene" uid="uid://c0ovbmuwvax0v" path="res://Mgame13/mgame13.tscn" id="38_ed1gk"]
+
+[sub_resource type="Curve" id="Curve_t0rod"]
+min_value = -360.0
+max_value = 360.0
+_data = [Vector2(0, 360), 0.0, 0.0, 0, 0, Vector2(1, -360), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_k0mci"]
+max_value = 2.0
+_data = [Vector2(0, 1.0989), 0.0, 0.0, 0, 0, Vector2(1, 0.032967), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_7065l"]
+offsets = PackedFloat32Array(0.158333, 0.466667, 0.975)
+colors = PackedColorArray(1, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0)
+
+[node name="MainGame" type="Node"]
+script = ExtResource("1_u3lik")
+panel_highlight = ExtResource("2_qqt8m")
+bg_effect = ExtResource("3_cxiy1")
+
+[node name="Game Notes" type="Node" parent="."]
+script = ExtResource("4_3koi7")
+
+[node name="GameLogic" type="Node" parent="."]
+
+[node name="SpawnTimer" type="Timer" parent="GameLogic"]
+wait_time = 10.0
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="GameOverMenu" parent="UI" instance=ExtResource("5_ikj2k")]
+z_index = 4096
+
+[node name="DecorCat" parent="UI" instance=ExtResource("27_mehs4")]
+z_index = 1
+position = Vector2(380, 38)
+scale = Vector2(2, 2)
+
+[node name="DecorCat2" parent="UI" instance=ExtResource("7_jetqe")]
+z_index = 1
+position = Vector2(100, 504)
+scale = Vector2(2, 2)
+
+[node name="PauseMenue" parent="UI" instance=ExtResource("11_hpahw")]
+z_index = 4095
+
+[node name="Guide" parent="UI" instance=ExtResource("3_wd48a")]
+z_index = 1
+offset_left = 140.0
+offset_top = 95.0
+offset_right = 180.0
+offset_bottom = 135.0
+scale = Vector2(0.8, 0.8)
+
+[node name="Tutorial" type="Label" parent="UI"]
+z_index = 1
+offset_left = 60.0
+offset_top = 536.0
+offset_right = 235.0
+offset_bottom = 585.0
+theme_override_colors/font_color = Color(1, 0.335514, 0.269596, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "Practice Mode"
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="UI/Tutorial"]
+layout_mode = 0
+offset_left = 19.0
+offset_top = 23.0
+offset_right = 158.0
+offset_bottom = 46.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "Hit                   to start Run!"
+
+[node name="Label2" type="Label" parent="UI/Tutorial/Label"]
+layout_mode = 0
+offset_left = 16.0
+offset_right = 80.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(5.19812e-06, 0, 0.941471, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "Enter"
+horizontal_alignment = 1
+
+[node name="TutorialStar" type="Sprite2D" parent="UI/Tutorial"]
+z_index = 1
+z_as_relative = false
+position = Vector2(172, 11)
+scale = Vector2(4.26172, 4.01952)
+texture = ExtResource("13_xysq3")
+offset = Vector2(0.5, 0.5)
+script = ExtResource("14_0xgay")
+
+[node name="TutorialStar2" type="Sprite2D" parent="UI/Tutorial"]
+z_index = 1
+z_as_relative = false
+position = Vector2(3.00002, 10)
+scale = Vector2(4.26172, 4.01952)
+texture = ExtResource("13_xysq3")
+offset = Vector2(0.5, 0.5)
+script = ExtResource("14_0xgay")
+
+[node name="HowTo" type="Label" parent="UI/Tutorial"]
+z_index = 1
+layout_mode = 0
+offset_left = 207.0
+offset_top = -7.0
+offset_right = 488.0
+offset_bottom = 41.0
+theme_override_colors/font_color = Color(1, 0.377991, 0.31005, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 12
+text = "How to Play
+"
+
+[node name="Switch" type="Label" parent="UI/Tutorial/HowTo"]
+z_index = 1
+layout_mode = 0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "
+Switch games with: "
+
+[node name="Play" type="Label" parent="UI/Tutorial/HowTo"]
+z_index = 1
+layout_mode = 0
+offset_top = 4.0
+offset_right = 281.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "
+
+Play games with:"
+
+[node name="WASD" type="Label" parent="UI/Tutorial/HowTo"]
+z_index = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 22.0
+offset_right = 281.0
+offset_bottom = 52.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.273873, 0.273873, 0.273873, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "W A S D
+"
+
+[node name="Space" type="Label" parent="UI/Tutorial/HowTo"]
+z_index = 1
+layout_mode = 0
+offset_left = 201.0
+offset_top = 39.0
+offset_right = 281.0
+offset_bottom = 56.0
+theme_override_colors/font_color = Color(4.15128e-06, 0.503838, 4.81307e-07, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "Space
+"
+
+[node name="Arrowkeys" type="Label" parent="UI/Tutorial/HowTo"]
+z_index = 1
+layout_mode = 0
+offset_left = 128.0
+offset_top = 38.0
+offset_right = 281.0
+offset_bottom = 67.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0.393086, 0.393086, 0.393085, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "Arrow Keys
+"
+
+[node name="LivesLabel" type="Label" parent="UI"]
+visible = false
+z_index = 200
+offset_left = 340.0
+offset_top = 531.0
+offset_right = 404.0
+offset_bottom = 574.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "Lifes: "
+
+[node name="Lives" type="Label" parent="UI/LivesLabel"]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 144.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0.47451, 0, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "3"
+
+[node name="SignalLabel" type="Label" parent="UI"]
+visible = false
+z_index = 200
+offset_left = 340.0
+offset_top = 558.0
+offset_right = 404.0
+offset_bottom = 618.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "Signal:"
+
+[node name="Strength" type="Label" parent="UI/SignalLabel"]
+layout_mode = 0
+offset_left = 80.0
+offset_right = 144.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0.454902, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "50%"
+
+[node name="Score" type="Label" parent="UI"]
+visible = false
+z_index = 200
+texture_filter = 3
+offset_left = 59.0
+offset_top = 541.0
+offset_right = 158.0
+offset_bottom = 574.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 24
+text = "Score: 
+"
+
+[node name="Points" type="Label" parent="UI/Score"]
+layout_mode = 0
+offset_left = 111.0
+offset_right = 151.0
+offset_bottom = 33.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 24
+text = "6"
+
+[node name="IncrementLabel" type="Label" parent="UI/Score"]
+layout_mode = 0
+offset_left = 482.0
+offset_top = -520.0
+offset_right = 736.0
+offset_bottom = -497.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "Cats rescued without incident:"
+
+[node name="Increment" type="Label" parent="UI/Score"]
+layout_mode = 0
+offset_left = 678.0
+offset_top = -519.0
+offset_right = 718.0
+offset_bottom = -496.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+theme_override_font_sizes/font_size = 9
+text = "6
+"
+
+[node name="Overlay" type="Sprite2D" parent="UI"]
+z_as_relative = false
+texture_filter = 1
+position = Vector2(489, 302)
+scale = Vector2(2, 2)
+texture = ExtResource("9_w1kq4")
+
+[node name="CanvasGroup" type="CanvasGroup" parent="UI"]
+
+[node name="Key1" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(132, 44)
+
+[node name="Key2" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(252, 44)
+
+[node name="Key3" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(372, 44)
+
+[node name="Key4" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(492, 44)
+
+[node name="Key5" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(132, 164)
+
+[node name="Key6" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(252, 164)
+
+[node name="Key7" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(372, 164)
+
+[node name="Key8" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(492, 164)
+
+[node name="Key9" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(132, 284)
+
+[node name="Key10" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(252, 284)
+
+[node name="Key11" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(372, 284)
+
+[node name="Key12" parent="UI/CanvasGroup" instance=ExtResource("4_u0wwu")]
+z_index = 1
+position = Vector2(492, 284)
+
+[node name="SelectEffect" type="CPUParticles2D" parent="UI/CanvasGroup"]
+position = Vector2(132, 44)
+amount = 50
+lifetime = 0.5
+emission_shape = 2
+emission_sphere_radius = 25.0
+spread = 180.0
+gravity = Vector2(0, 200)
+angular_velocity_max = 100.0
+angular_velocity_curve = SubResource("Curve_t0rod")
+orbit_velocity_min = 0.1
+orbit_velocity_max = 0.5
+orbit_velocity_curve = SubResource("Curve_k0mci")
+angle_max = 360.0
+scale_amount_min = 3.0
+scale_amount_max = 6.0
+color_ramp = SubResource("Gradient_7065l")
+
+[node name="FPS" type="Label" parent="UI"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="LoadingBar" type="Sprite2D" parent="UI"]
+position = Vector2(739, 564)
+texture = ExtResource("5_8c3ky")
+
+[node name="Bar" type="Sprite2D" parent="UI/LoadingBar"]
+z_index = -2
+texture = ExtResource("6_83hr3")
+
+[node name="LoadingLabel" type="Label" parent="UI/LoadingBar"]
+offset_left = -183.0
+offset_top = -37.0
+offset_right = -19.0
+offset_bottom = -11.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "Next Signal in"
+
+[node name="Seconds" type="Label" parent="UI/LoadingBar/LoadingLabel"]
+layout_mode = 0
+offset_left = 148.0
+offset_right = 364.0
+offset_bottom = 23.0
+theme_override_colors/font_color = Color(0, 0.494118, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "14.2 seconds"
+
+[node name="LoadingLabel2" type="Label" parent="UI/LoadingBar/LoadingLabel"]
+layout_mode = 0
+offset_left = 196.0
+offset_right = 366.0
+offset_bottom = 26.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_t0nov")
+text = "seconds"
+
+[node name="Zoomview" type="SubViewportContainer" parent="."]
+z_index = 100
+texture_filter = 1
+offset_left = 539.0
+offset_top = 42.0
+offset_right = 939.0
+offset_bottom = 502.0
+
+[node name="SubViewport" type="SubViewport" parent="Zoomview"]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(400, 400)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Zoomview/SubViewport"]
+z_index = 5
+
+[node name="Overview" type="SubViewportContainer" parent="."]
+z_index = 10
+texture_filter = 1
+offset_left = 39.0
+offset_top = 42.0
+offset_right = 539.0
+offset_bottom = 502.0
+
+[node name="SubViewport" type="SubViewport" parent="Overview"]
+disable_3d = true
+handle_input_locally = false
+canvas_item_default_texture_filter = 0
+size = Vector2i(500, 400)
+render_target_update_mode = 4
+
+[node name="Camera2D" type="Camera2D" parent="Overview/SubViewport"]
+offset = Vector2(400, 350)
+zoom = Vector2(0.5, 0.5)
+
+[node name="Mgame1" parent="Overview/SubViewport" instance=ExtResource("2_burbs")]
+z_index = 3
+position = Vector2(94.5, 142.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="Mgame2" parent="Overview/SubViewport" instance=ExtResource("4_mwfxk")]
+z_index = 1
+position = Vector2(274.5, 142.5)
+scale = Vector2(1.5, 1.5)
+
+[node name="Mgame3" parent="Overview/SubViewport" instance=ExtResource("8_q3hjo")]
+z_index = 2
+
+[node name="Mgame4" parent="Overview/SubViewport" instance=ExtResource("11_00x6f")]
+z_index = 2
+
+[node name="Mgame13" parent="Overview/SubViewport" instance=ExtResource("38_ed1gk")]
+
+[node name="MenueEnabler" type="Timer" parent="."]
+
+[connection signal="timeout" from="GameLogic/SpawnTimer" to="." method="_on_spawn_timer_timeout"]
+[connection signal="reset" from="UI/GameOverMenu" to="." method="_on_menues_reset"]
+[connection signal="pause" from="UI/PauseMenue" to="." method="_on_menues_pause"]
+[connection signal="reset" from="UI/PauseMenue" to="." method="_on_menues_reset"]
+[connection signal="lost" from="Overview/SubViewport/Mgame1" to="." method="on_game_lost"]
+[connection signal="win" from="Overview/SubViewport/Mgame1" to="." method="on_game_win"]
+[connection signal="lost" from="Overview/SubViewport/Mgame2" to="." method="on_game_lost"]
+[connection signal="win" from="Overview/SubViewport/Mgame2" to="." method="on_game_win"]
+[connection signal="lost" from="Overview/SubViewport/Mgame3" to="." method="on_game_lost"]
+[connection signal="win" from="Overview/SubViewport/Mgame3" to="." method="on_game_win"]
+[connection signal="lost" from="Overview/SubViewport/Mgame4" to="." method="on_game_lost"]
+[connection signal="win" from="Overview/SubViewport/Mgame4" to="." method="on_game_win"]
+[connection signal="timeout" from="MenueEnabler" to="." method="_on_menue_enabler_timeout"]
