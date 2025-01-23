@@ -199,7 +199,7 @@ scale = Vector2(1, 0.962)
 shape = SubResource("RectangleShape2D_t3ajw")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 20.0
+wait_time = 18.0
 
 [connection signal="area_entered" from="Auto" to="." method="_on_auto_area_entered"]
 [connection signal="area_exited" from="Auto" to="." method="_on_auto_area_exited"]

@@ -28,12 +28,14 @@ func new_game():
 	$Auto.position.x = 0
 	$Auto.position.y = 0
 	
+	
 
 func enable():
 	if get_node("GameOver"):
 		get_node("GameOver").despawn()
 	spawn_ready = false
 	new_game()
+	active = true 
 
 func disable(text, color):
 	var trans = transition.instantiate()
@@ -43,11 +45,20 @@ func disable(text, color):
 
 func gamewon():
 	disable("You survived!", Color(0, 0.5, 0, 0))
-
+	reset()
+	active = false
 	
 func gamelost():
 	disable("Signal Lost", Color(0.5, 0., 0, 0))
+	reset()
+	active = false
 
+func reset():
+	$Auto.position = Vector2(0,0)
+	pos = Vector2(0,0)
+	v = Vector2 (0,0)
+	$Auto/Sprite2D.global_rotation = 0
+	$Auto/Sprite2D.rotation = 0
 
 func _ready():
 	pass
@@ -100,6 +111,7 @@ func _on_auto_area_exited(area: Area2D) -> void:
 		$Timer.stop()
 		print("You Won")
 		gamewon()
+		
 		
 		
 		
