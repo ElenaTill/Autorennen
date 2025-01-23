@@ -17,7 +17,7 @@ radius = 12.0
 size = Vector2(23, 69.6466)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_byvi8"]
-size = Vector2(18.4082, 47.1001)
+size = Vector2(18.4082, 44.2454)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1rh55"]
 radius = 12.0
@@ -94,7 +94,7 @@ position = Vector2(-17, 10.395)
 shape = SubResource("RectangleShape2D_6f7in")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Strecke"]
-position = Vector2(17.505, 7.79625)
+position = Vector2(17.507, 8.83574)
 rotation = -0.00191033
 scale = Vector2(1.24944, 0.728269)
 shape = SubResource("RectangleShape2D_byvi8")
@@ -104,7 +104,7 @@ position = Vector2(17, 20.79)
 shape = SubResource("CircleShape2D_1rh55")
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="Strecke"]
-position = Vector2(17, -24.948)
+position = Vector2(17, -27.027)
 shape = SubResource("CircleShape2D_tjxaj")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="Strecke"]
@@ -126,25 +126,21 @@ shape = SubResource("RectangleShape2D_gpiak")
 [node name="CollisionShape2D11" type="CollisionShape2D" parent="Strecke"]
 position = Vector2(4.49494, -40.1139)
 rotation = 0.735437
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_it67s")
 
 [node name="CollisionShape2D12" type="CollisionShape2D" parent="Strecke"]
 position = Vector2(-5, -43.659)
 rotation = 0.405833
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ep1k5")
 
 [node name="CollisionShape2D13" type="CollisionShape2D" parent="Strecke"]
 position = Vector2(-40, -38.4615)
 rotation = -0.71823
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_uv83f")
 
 [node name="CollisionShape2D14" type="CollisionShape2D" parent="Strecke"]
 position = Vector2(-29.4118, -43.9555)
 rotation = -0.318709
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_0yhhn")
 
 [node name="CollisionShape2D15" type="CollisionShape2D" parent="Strecke"]
@@ -160,7 +156,6 @@ shape = SubResource("RectangleShape2D_8uofj")
 [node name="CollisionShape2D17" type="CollisionShape2D" parent="Strecke"]
 position = Vector2(30.7077, 43.9614)
 rotation = -0.377549
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_n4qsb")
 
 [node name="CollisionShape2D18" type="CollisionShape2D" parent="Strecke"]
@@ -172,9 +167,9 @@ shape = SubResource("RectangleShape2D_vufnl")
 
 [node name="Label" type="Label" parent="."]
 offset_left = 3.0
-offset_top = -45.0
+offset_top = -46.0
 offset_right = 48.0
-offset_bottom = -22.0
+offset_bottom = -23.0
 theme_override_font_sizes/font_size = 10
 text = "Timer"
 
@@ -187,7 +182,6 @@ texture = ExtResource("6_xxv1p")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Auto"]
 position = Vector2(-35.625, 37.75)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_sp2l8")
 
 [node name="Startbox" type="Area2D" parent="."]
@@ -205,7 +199,7 @@ scale = Vector2(1, 0.962)
 shape = SubResource("RectangleShape2D_t3ajw")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 15.0
+wait_time = 20.0
 
 [connection signal="area_entered" from="Auto" to="." method="_on_auto_area_entered"]
 [connection signal="area_exited" from="Auto" to="." method="_on_auto_area_exited"]

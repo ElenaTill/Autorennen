@@ -12,6 +12,8 @@ var auto_speed = 25
 var active = false
 var spawn_ready = false
 
+var pos = Vector2 (0,0)
+var v = Vector2 (0,0)
 
 
 func set_active(b):
@@ -58,13 +60,26 @@ func _process(delta):
 	if Input.is_action_just_pressed("newgame"):
 		enable()
 	if Input.is_action_pressed("Up") and active == true:
+		v = Vector2 (0,-17)
 		$Auto.position.y -= auto_speed * delta
+		# change vector v
 	if Input.is_action_pressed("Left") and active == true:
-		$Auto.position.x -= auto_speed * delta
+		v = v.rotated (PI/-100)
+		$Auto/Sprite2D.rotation -= PI/100
+		# change vector v
 	if Input.is_action_pressed("Right") and active == true:
-		$Auto.position.x += auto_speed * delta
+		v = v.rotated (PI/100)
+		$Auto/Sprite2D.rotation += PI/100
+		# change vector v
 	if Input.is_action_pressed("Down") and active == true:
 		$Auto.position.y += auto_speed * delta
+		# change vector v
+		
+	# change position 
+	pos = pos + delta * v
+	$Auto.position = pos
+	
+
 
 func _on_auto_area_entered(area: Area2D) -> void:
 	if area == $Strecke:
@@ -85,6 +100,7 @@ func _on_auto_area_exited(area: Area2D) -> void:
 		$Timer.stop()
 		print("You Won")
 		gamewon()
+		
 		
 		
 
